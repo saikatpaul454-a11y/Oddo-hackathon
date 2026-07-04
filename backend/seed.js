@@ -28,6 +28,8 @@ const seedData = async () => {
       salary: 95000,
       role: 'admin',
       isFaceRegistered: false,
+      isEmailVerified: true,
+      status: 'Active',
     });
 
     const hrUser = await Employee.create({
@@ -40,6 +42,8 @@ const seedData = async () => {
       salary: 60000,
       role: 'hr',
       isFaceRegistered: false,
+      isEmailVerified: true,
+      status: 'Active',
     });
 
     const employeeUser = await Employee.create({
@@ -53,6 +57,8 @@ const seedData = async () => {
       role: 'employee',
       joiningDate: new Date('2026-01-10'),
       isFaceRegistered: true, // Face registered for testing Face-in
+      isEmailVerified: true,
+      status: 'Active',
     });
 
     console.log('Created Seed Users.');

@@ -11,6 +11,9 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const params = new URLSearchParams(window.location.search);
+  const isVerified = params.get('verified') === 'true';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -45,6 +48,12 @@ const Login = () => {
             Sign in to your Employee Portal to continue
           </p>
         </div>
+
+        {isVerified && (
+          <div className="mb-6 rounded-lg border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-400">
+            Email verified successfully! You can now sign in.
+          </div>
+        )}
 
         {error && (
           <div className="mb-6 rounded-lg border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-400">
@@ -110,6 +119,13 @@ const Login = () => {
             )}
           </button>
         </form>
+
+        <div className="mt-6 text-center text-sm text-slate-400">
+          Don't have an account?{' '}
+          <Link to="/register" className="text-indigo-400 hover:text-indigo-300 font-semibold transition">
+            Sign Up
+          </Link>
+        </div>
 
       </div>
     </div>
